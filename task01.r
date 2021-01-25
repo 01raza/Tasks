@@ -1,4 +1,3 @@
-install.packages("swirl")
 library(swirl)
 swirl()
 Raza
@@ -23,3 +22,5 @@ my_div<-z/my_sqrt
 c(1,2,3,4)+c(0,10)
 c(1,2,3,4)+c(0,10,100)
 my_div
+
+### Mitchell added this. This is the end of parts a and b.
