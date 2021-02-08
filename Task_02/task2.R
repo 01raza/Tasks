@@ -113,3 +113,39 @@ cor.test(beren4$start_hour,beren4$sleepTime)
   ### Question 2: The graph is hard to interpret because there is no specific trend in the dots it's going zig zag. 
 
 
+
+ ### Part 2c 
+
+
+### Hypothesis: the total sum of milk consumed in a day is positively correlated with the total number of wet diapers in a day
+
+
+
+
+wet <- which(beren3$event=="wet")
+beren3$NumberOfWets <- beren3$age/beren3$age
+berenWets <- beren3[wet,]
+totalWet<-tapply(beren3$NumberOfWets[wet],beren3$age[wet],sum)
+totalWet
+
+Milk<-which(beren3$event=="bottle")
+totalMilk<-tapply(beren3$value[Milk],beren3$age[Milk],sum)
+berenMilk <- beren3[Milk,]
+totalMilk
+berenMilk 
+daysInCommon <- intersect(berenMilk$age, berenWets$age)
+daysInCommon
+
+totalWet
+totalMilk
+daysInCommon
+totalWet[as.character(daysInCommon)]
+totalMilk[as.character(daysInCommon)]
+pdf("2c-graph.pdf",height=10,width=10)
+par(las=1,mar=c(5,5,1,1),mgp=c(2,0.5,0),tck=-0.01)
+plot(totalMilk[as.character(daysInCommon)],totalWet[as.character(daysInCommon)],type="p",pch=20,main = "Number of Wets vs the consumption of milk",xlab="Milk consumed each day (oz)",ylab="Number of Wets each day")
+dev.off()
+cor.test(totalMilk[as.character(daysInCommon)],totalWet[as.character(daysInCommon)])
+
+ ### Results showed a positive correlation b/w milk consumed in a day and number of wets each day. 
+
