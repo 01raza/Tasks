@@ -164,4 +164,4 @@ abline(robustLine, col="red")
 legend ("top", legend=c("Regression Linear","Robust"),col=c("blue","red"),lty=1,lwd=2,bty="n")
 dev.off()
 
-  ### The slope for robust line is less as compared to the linear regression. 
+  ### The slope for robust line is less steep as compared to the linear regression. 
