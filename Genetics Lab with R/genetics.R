@@ -1,0 +1,35 @@
+setwd('C:\\Users\\Raza\\Desktop\\Evolution\\Tasks\\Genetics Lab with R') 
+data<- read.csv("opi.csv",stringsAsFactors=F)
+head(data)
+Total_class_control<-(data$con.TT+data$con.CT+data$ï..con.CC)
+Total_class_control
+Total_class_case<-(data$case.CC+data$case.TT+data$case.CT)
+Total_class_case
+Total_study_control<-(data$study.con.TT+data$study.con.CT+data$study.con.CC)
+Total_study_control
+Total_study_case<-(data$study.case.TT+data$study.case.CT+data$study.case.CC)
+Total_study_case
+Total_CC_control<-(data$ï..con.CC+data$study.con.CC)
+Total_CC_case<-(data$case.CC+data$study.case.CC)
+Total_CT_control<-(data$con.CT+data$study.con.CT)
+Total_CT_case<-(data$case.CT+data$study.case.CT)
+Total_TT_control<-(data$con.TT+data$study.con.TT)
+Total_TT_case<-(data$case.TT+data$study.case.TT)
+Total_CC_control
+Total_CC_case
+Total_CT_control
+Total_CT_case
+Total_TT_control
+Total_TT_case
+Freq.CC.control<-Total_CC_control*100/48
+Freq.CC.case<-Total_CC_case*100/59
+Freq.CT.control<-Total_CT_control*100/48
+Freq.CT.case<-Total_CT_case*100/59
+Freq.TT.control<-Total_TT_control*100/48
+Freq.TT.case<-Total_TT_case*100/59
+Freq.CC.control
+Freq.CC.case
+Freq.CT.control
+Freq.CT.case
+Freq.TT.control
+Freq.TT.case
