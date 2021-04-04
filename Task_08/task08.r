@@ -41,19 +41,21 @@ plot(obj, type='fan', legend=0.7*max(nodeHeights(tree)), sig=2, fsize=c(0.7, 0.9
 fossilData <- data.frame(svl=log(c(25.4, 23.2, 17.7, 19.7, 24, 31)), tip1=c('Anolis_aliniger', 'Anolis_aliniger', 'Anolis_occultus', 'Anolis_ricordii', 'Anolis_cristatellus', 'Anolis_occultus' ), tip2=c('Anolis_chlorocyanus', 'Anolis_coelestinus', 'Anolis_hendersoni', 'Anolis_cybotes', 'Anolis_angusticeps', 'Anolis_angusticeps'))
 fossilData
 
- ### Question 5:
-{	
-	for(i in 1:nrow(fossilData))
-	i <- 1
-	if( i == 1) {
-	print(Ancestors)
+?fastAnc
 
-	}
+ ### Question 5:
+fossilNodes<-c()
+nodeN<-c()
+for (i in 1:nrow(fossilData)) {
+  Node <- fastAnc(tree, svl, vars=TRUE, CI=TRUE)
+  fossilNodes[i] <- fossilData[i , "svl"]
+  nodeN[i] <- Node
 }
 
+ ### Corrected the loop and uploaded again on 04/03/2021.
+
 ?fastMRCA
-fossilNodes <- c()
-nodeN <- c()
+
 Node <- fastMRCA(tree, fossilData[i, 'tip1'], fossilData[i, 'tip2'])
 Node
 fossilNodes[i] <- fossilData[i, 'svl']
@@ -61,7 +63,7 @@ fossilNodes[i]
 nodeN[i] <- Node
 names(fossilNodes) <- nodeN
 
-Ancestors_withFossils <- fastAnc(tree, svl, anc.states=fossilNodes, CI=TRUE, var=TRUE)
+Ancestors_withFossils <- fastAnc(tree, svl, anc.states=fossilNodes[i], CI=TRUE, var=TRUE)
 Ancestors_withFossils
 Ancestors_withoutFossils <- fastAnc(tree, svl, CI=TRUE, var=TRUE)
 Ancestors_withoutFossils
